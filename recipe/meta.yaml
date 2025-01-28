@@ -1,5 +1,6 @@
 {% set name = "nomad-camels-driver-keithley-2400" %}
 {% set version = "0.1.2" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -12,18 +13,20 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9.6
+    - python {{ python_min }}
     - setuptools >=61.0
     - pip
   run:
-    - python >=3.9.6
+    - python >={{ python_min }}
     - nomad-camels >=0.2
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - nomad_camels_driver_keithley_2400
 
