@@ -1,5 +1,5 @@
 {% set name = "nomad-camels-driver-keithley-2400" %}
-{% set version = "0.1.2" %}
+{% set version = "0.1.3" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nomad_camels_driver_keithley_2400-{{ version }}.tar.gz
-  sha256: 9a1e3f42b15cecdc2047f1adbdbb3b00101aa7e846859b29fae03a713ae0011c
+  sha256: 900a333111cff8184e4ad3401529d807fab6a7217edf5f3bf78ccdabc04b511c
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
